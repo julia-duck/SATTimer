@@ -1,0 +1,16 @@
+{
+  "name": "SAT Timer",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Displays timer based on math question difficulty"
+  },
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [{
+    "resources": ["content.css"],
+    "matches": ["<all_urls>"]
+  }]
+}

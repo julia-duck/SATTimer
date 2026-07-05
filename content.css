@@ -1,0 +1,34 @@
+#timer-window {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 999999;
+    height: 110px;
+    width: 312px;
+    border-color: rgb(0, 0, 0);
+    background-color: rgb(250, 250, 250);
+    top: 10px;
+    right: 10px;
+}
+.button {
+    border-color: rgb(0, 0, 0);
+    background-color: rgb(250, 250, 250);
+    height: 20px;
+    width: 150px;
+    color: rgb(0, 0, 0);
+    margin: 1px 1px 1px 1px;
+}
+#timer-display {
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.close-button {
+    margin-left: 300px;
+    width: 10px;
+}
