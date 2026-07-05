@@ -33,7 +33,8 @@
     flex-direction: row;
 }
 
-.close-button {
-    margin-left: 300px;
-    width: 10px;
+#close-button {
+    margin-left: 277px;
+    max-width: 30px;
+    margin-top: 5px;
 }

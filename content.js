@@ -1,9 +1,9 @@
 {
     let displayStr = "00:00";
     let secs = 0;
+    let time = 0;
     let questions = 0;
     let totalTime = 0;
-    let time = 0;
     if (window.timerId) {
         clearInterval(window.timerId);
     }
