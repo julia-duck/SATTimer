@@ -20,9 +20,14 @@
 }
 #timer-display {
     font-size: 25px;
-    color: rgb(0, 0, 0);
 }
-
+#timer-display[data-state="countdown"] {
+    color:rgb(0, 0, 0);
+}
+#timer-display[data-state="countup"]
+ {
+    color: rgb(250, 0, 0);
+ }
 .buttons {
     display: flex;
     flex-direction: row;
