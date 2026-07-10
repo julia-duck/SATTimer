@@ -3,26 +3,43 @@
     flex-direction: column;
     position: fixed;
     z-index: 999999;
-    height: 110px;
+    height: 140px;
     width: 312px;
-    border-color: rgb(0, 0, 0);
     background-color: rgb(250, 250, 250);
     top: 10px;
     right: 10px;
+    border: 2px solid rgb(88, 42, 156);
 }
-.button {
-    border-color: rgb(0, 0, 0);
+.button2 {
+    border-color: rgb(88, 42, 156);
     background-color: rgb(250, 250, 250);
     height: 20px;
     width: 150px;
-    color: rgb(0, 0, 0);
+    color: rgb(88, 42, 156);
     margin: 1px 1px 1px 1px;
+    padding-bottom: 20px;
+}
+.button1 {
+    border-color: rgb(88, 42, 156);
+    background-color: rgb(250, 250, 250);
+    height: 20px;
+    width: 97px;
+    color: rgb(88, 42, 156);
+    margin: 1px 1px 1px 1px;
+    padding-bottom: 20px;
 }
 #timer-display {
     font-size: 25px;
+    margin-left: 120px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    border: 2px solid rgb(88, 42, 156);
+    width: 83px;
 }
 #timer-display[data-state="countdown"] {
-    color:rgb(0, 0, 0);
+    color:rgb(88, 42, 156);
 }
 #timer-display[data-state="countup"]
  {
@@ -37,4 +54,6 @@
     margin-left: 277px;
     max-width: 30px;
     margin-top: 5px;
+    position: absolute;
+    border-color:rgb(88, 42, 156);
 }

@@ -2,8 +2,15 @@
     let displayStr = "00:00";
     let secs = 0;
     let time = 0;
-    let questions = 0;
-    let totalTime = 0;
+    //let questions = 0;
+    //let totalTime = 0;
+    let type = ""; //easy or hard
+    let easyTime = 0;
+    let medTime = 0;
+    let hardTime = 0;
+    let easyQuestions = 0;
+    let medQuestions = 0;
+    let hardQuestions = 0;
     if (window.timerId) {
         clearInterval(window.timerId);
     }
@@ -17,10 +24,11 @@
             <button id="close-button">&#x2715</button>
             <div id="timer-display">${displayStr}</div>
             <div id="buttons">
-                <button id="easy" class="button">Easy</button>
-                <button id="hard" class="button">Hard</button>
-                <button id="done" class="button">Done</button>
-                <button id="summary" class="button">Summary</button>
+                <button id="easy" class="button1">Easy</button>
+                <button id="medium" class="button1">Medium</button>
+                <button id="hard" class="button1">Hard</button>
+                <button id="done" class="button2">Done</button>
+                <button id="summary" class="button2">Summary</button>
             </div>
         `;
 
@@ -36,27 +44,60 @@
 
         document.getElementById("easy").addEventListener("click", () => {
             time = 0;
+            type = "easy";
             secs = 60;
+            setTimer();
+        });
+
+        document.getElementById("medium").addEventListener("click", () => {
+            time = 0;
+            type = "medium";
+            secs = 90;
             setTimer();
         });
 
         document.getElementById("hard").addEventListener("click", () => {
             time = 0;
+            type = "hard";
             secs = 120;
             setTimer();
         });
 
         document.getElementById("done").addEventListener("click", () => {
-            questions++;
+            if (type == "easy") {
+                easyQuestions++;
+                easyTime += time;
+            }
+            else if (type == "hard") {
+                hardQuestions++;
+                hardTime += time;
+            }
+            else {
+                medQuestions++;
+                medTime += time;
+            }
             clearInterval(window.timerId);
             resetTimer();
-            totalTime += time;
         });
 
         document.getElementById("summary").addEventListener("click", () => {
+            let totalTime = easyTime + hardTime + medTime;
             let mins = Math.floor(totalTime / 60);
             let rightSecs = totalTime % 60;
-            alert(questions + " questions in " + mins + " minutes and " + rightSecs + " seconds");
+
+            alert((easyQuestions + hardQuestions + medQuestions) + " questions in " + mins + " minutes and " + rightSecs + " seconds");
+
+            totalTime = Math.round(easyTime/easyQuestions);
+            let eM = Math.floor(totalTime / 60);
+            let eS = totalTime % 60;
+            totalTime = Math.round(medTime/medQuestions);
+            let mM = Math.floor(totalTime / 60);
+            let mS = totalTime % 60;
+            totalTime = Math.round(hardTime/hardQuestions);
+            let hM = Math.floor(totalTime / 60);
+            let hS = totalTime % 60;
+
+            alert("Easy average time: " + eM + " minutes and " + eS + " seconds. Medium average time: " + mM + " minutes and " + mS + " seconds. Hard average time: " + hM + " minutes and " + hS + " seconds.");
         });
 
         document.getElementById("close-button").addEventListener("click", CloseTimer);
@@ -111,6 +152,7 @@
 
     function resetTimer() {
         displayStr = "00:00";
+        document.getElementById("timer-display").dataset.state = "countdown";
         document.getElementById("timer-display").innerText = displayStr;
     }
 

@@ -3,7 +3,7 @@
   "version": "1.0",
   "manifest_version": 3,
   "action": {
-    "default_title": "Displays timer based on math question difficulty"
+    "default_title": "SAT Practice Timer"
   },
   "permissions": ["activeTab", "scripting"],
   "background": {
