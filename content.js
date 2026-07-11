@@ -27,8 +27,9 @@
                 <button id="easy" class="button1">Easy</button>
                 <button id="medium" class="button1">Medium</button>
                 <button id="hard" class="button1">Hard</button>
-                <button id="done" class="button2">Done</button>
-                <button id="summary" class="button2">Summary</button>
+                <button id="done" class="button1">Done</button>
+                <button id="skipp" class="button1">Skip</button>
+                <button id="summary" class="button1">Summary</button>
             </div>
         `;
 
@@ -76,6 +77,11 @@
                 medQuestions++;
                 medTime += time;
             }
+            clearInterval(window.timerId);
+            resetTimer();
+        });
+
+        document.getElementById("skipp").addEventListener("click", () => {
             clearInterval(window.timerId);
             resetTimer();
         });
