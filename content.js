@@ -1,4 +1,5 @@
 {
+    const tabName = window.location.href;
     let displayStr = "00:00";
     let secs = 0;
     let time = 0;
@@ -13,6 +14,23 @@
     let hardQuestions = 0;
     if (window.timerId) {
         clearInterval(window.timerId);
+    }
+    function addCheckAlert() {
+        if (tabName.includes("results")) {
+        let buttons = document.querySelectorAll(".cb-btn.cb-btn-black");
+        let nextButton = Array.from(buttons).find(btn => btn.textContent.trim() === "Next");
+        if (nextButton) { //if found/not undefined
+            nextButton.addEventListener("click", (event) => {
+                let allBoxes = document.querySelectorAll('[id^="apricot_check_"]');
+                let checkBox = allBoxes[allBoxes.length-1];
+                if (checkBox.checked) {
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                    alert("Please uncheck the answer box to prevent spoilers.");
+                }
+            }, {capture: true});
+        }
+    }
     }
     if (!document.getElementById("timer-window")) {
         //create the element to inject
@@ -48,6 +66,7 @@
             type = "easy";
             secs = 60;
             setTimer();
+            addCheckAlert();
         });
 
         document.getElementById("medium").addEventListener("click", () => {
@@ -55,6 +74,7 @@
             type = "medium";
             secs = 90;
             setTimer();
+            addCheckAlert();
         });
 
         document.getElementById("hard").addEventListener("click", () => {
@@ -62,6 +82,7 @@
             type = "hard";
             secs = 120;
             setTimer();
+            addCheckAlert();
         });
 
         document.getElementById("done").addEventListener("click", () => {
